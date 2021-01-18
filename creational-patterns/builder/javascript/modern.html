@@ -1,0 +1,44 @@
+<body>
+    <script>
+        class Address {
+            constructor(zipcode, country) {
+                this.zipcode = zipcode;
+                this.country = country;
+            }
+        }
+
+        class User {
+            constructor(name) {
+                this.name = name;
+            }
+        }
+        class UserBuilder {
+            // but the required in constructor
+            constructor(name) {
+                this.user = new User(name);
+            }
+            setPhone(phone) {
+                this.user.phone = phone;
+                return this;
+            }
+            setAddress(address) {
+                this.user.address = address;
+                return this;
+            }
+            setAge(age) {
+                this.user.age = age;
+                return this;
+            }
+            build() {
+                return this.user;
+            }
+        }
+
+        const user = new UserBuilder("Ahmed Yahya Elghandour")
+            .setAddress(new Address("8080", "Graz"))
+            .setAge(27)
+            .setPhone("01000241680")
+            .build();
+        console.log(user);
+    </script>
+</body>
